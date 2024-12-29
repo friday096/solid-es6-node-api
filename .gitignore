@@ -9,6 +9,8 @@
 # testing
 /coverage
 
+#ApiDocs
+/apidoc
 
 # misc
 .DS_Store

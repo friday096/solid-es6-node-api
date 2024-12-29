@@ -8,7 +8,7 @@ import { dirname } from 'path';
 import indexRouter from './routes/index.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-import mongoDB from './utils/mongo-db.js';
+import connectMongoDB from './config/database.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
 const PORT = process.env.APP_PORT || 8082; // Fallback to 8082 if PORT is not set
@@ -22,7 +22,7 @@ const __dirname = dirname(__filename);
 const app = express();
 
 // Connect to MongoDB
-mongoDB();
+connectMongoDB();
 
 // Enable CORS for all routes
 app.use(cors());
@@ -31,9 +31,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Set up the view engine
+// app.use(express.static(path.join(__dirname, '..', 'public')));
+// Serve static files from the 'apidoc' directory (where your API docs are generated)
+app.use('/apidoc', express.static(path.join(__dirname, '..', 'apidoc')));// Set up the view engine
+app.use('/public', express.static(path.join(__dirname, '..', 'public')));// Set up the view engine
 app.set('views', path.join(__dirname, 'views')); // Set the views directory
 app.set('view engine', 'ejs'); // Set EJS as the view engine
 

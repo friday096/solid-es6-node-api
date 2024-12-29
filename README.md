@@ -35,3 +35,6 @@ APP_PORT=8081
 ERROR_CODE=201
 SUCCESS_CODE=200
 EMAIL_FROM='your_email@example.com'
+
+## Api Documentaion run
+`npm run generate:api`

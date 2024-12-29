@@ -1,0 +1,17 @@
+#Envoirnment
+NODE_ENV=development
+#NODE_ENV=production
+
+#JWT_SECRET_KEY
+JWT_SECRET=jwt_hms_secret_2024
+APP_PORT=8081
+
+# API_URL_LIVE= 
+# API_URL_LOCAL= http://localhost:8081
+
+#DB dev Credentials
+# MASTER_SLAVE_DB_URL=true
+# DEV_DB_URL =
+
+# DB live Credentials
+# PROD_DB_URL = 

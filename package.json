@@ -1,10 +1,12 @@
 {
-  "name": "todo-api",
+  "name": "solid-es6-api",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "nodemon ./src/bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "generate-apidoc-config": "node apidoc.config.cjs",
+    "generate:api": "npm run generate-apidoc-config && apidoc -i src/ -o apidoc/"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
